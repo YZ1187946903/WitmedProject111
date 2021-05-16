@@ -22,6 +22,12 @@
 	</properties>
 
 	<dependencies>
+		<!-- 配置 Spring Cloud Starter Netflix Eureka Server 依赖 [BEGIN] -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+		<!-- 配置 Spring Cloud Starter Netflix Eureka Server 依赖 [END] -->
 	</dependencies>
 
 	<build>
