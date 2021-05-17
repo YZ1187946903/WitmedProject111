@@ -13,15 +13,22 @@ import java.io.Serializable;
  */
 public class PageQueryVO<E extends BaseVO> implements Serializable {
 	private static final long serialVersionUID = 7895975264176972837L;
-	private E query;                        // 查询对象视图
+	private E queryVO;                        // 查询对象视图
 	private PageVO<E> pageVO;               // 分页视图
 
-	public E getQuery() {
-		return query;
+	public PageQueryVO() {}
+
+	public PageQueryVO(E queryVO, PageVO<E> pageVO) {
+		this.queryVO = queryVO;
+		this.pageVO = pageVO;
 	}
 
-	public void setQuery(E query) {
-		this.query = query;
+	public E getQueryVO() {
+		return queryVO;
+	}
+
+	public void setQueryVO(E query) {
+		this.queryVO = queryVO;
 	}
 
 	public PageVO<E> getPageVO() {
