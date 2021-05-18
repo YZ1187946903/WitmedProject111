@@ -55,16 +55,19 @@ public class DivisionVO extends BaseVO {
 	 */
 	public static DivisionVO parseToVO(Division entity) {
 		DivisionVO vo = new DivisionVO();
-		// 拷贝普通属性
-		BeanUtils.copyProperties(entity, vo);
-		// 复制关联属性
-		Division parent = entity.getParent();
-		if (parent != null) {
-			DivisionVO parentVO = new DivisionVO();
-			// 将实体信息的关联属性复制到视图信息中
-			BeanUtils.copyProperties(parent, parentVO);
-			// 将关联属性设定到视图信息中
-			vo.setParentVO(parentVO);
+
+		if (entity != null) {
+			// 拷贝普通属性
+			BeanUtils.copyProperties(entity, vo);
+			// 复制关联属性
+			Division parent = entity.getParent();
+			if (parent != null) {
+				DivisionVO parentVO = new DivisionVO();
+				// 将实体信息的关联属性复制到视图信息中
+				BeanUtils.copyProperties(parent, parentVO);
+				// 将关联属性设定到视图信息中
+				vo.setParentVO(parentVO);
+			}
 		}
 
 		return vo;

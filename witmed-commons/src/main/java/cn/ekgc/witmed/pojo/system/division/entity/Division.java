@@ -55,16 +55,19 @@ public class Division extends BaseEntity {
 	 */
 	public static Division parseToEntity(DivisionVO vo) {
 		Division entity = new Division();
-		// 拷贝普通属性
-		BeanUtils.copyProperties(vo, entity);
-		// 复制关联属性
-		DivisionVO parentVO = vo.getParentVO();
-		if (parentVO != null) {
-			Division parent = new Division();
-			// 将视图信息的关联属性复制到实体信息中
-			BeanUtils.copyProperties(parentVO, parent);
-			// 将关联属性设定到实体信息中
-			entity.setParent(parent);
+
+		if (vo != null) {
+			// 拷贝普通属性
+			BeanUtils.copyProperties(vo, entity);
+			// 复制关联属性
+			DivisionVO parentVO = vo.getParentVO();
+			if (parentVO != null) {
+				Division parent = new Division();
+				// 将视图信息的关联属性复制到实体信息中
+				BeanUtils.copyProperties(parentVO, parent);
+				// 将关联属性设定到实体信息中
+				entity.setParent(parent);
+			}
 		}
 
 		return entity;
